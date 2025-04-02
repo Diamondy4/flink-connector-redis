@@ -442,7 +442,7 @@ public class RedisSinkFunction<IN> extends RichSinkFunction<IN> {
                     RedisRowConverter.rowDataToString(
                             columnDataTypes.get(i).getLogicalType(), rowData, i));
             if (i != columnDataTypes.size() - 1) {
-                stringBuilder.append(RedisDynamicTableFactory.CACHE_SEPERATOR);
+                stringBuilder.append(RedisDynamicTableFactory.CACHE_SEPARATOR);
             }
         }
         return stringBuilder.toString();

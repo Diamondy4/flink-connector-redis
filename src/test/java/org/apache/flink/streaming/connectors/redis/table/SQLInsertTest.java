@@ -276,9 +276,9 @@ public class SQLInsertTest extends TestRedisConfigBase {
         tableResult.getJobClient().get().getJobExecutionResult().get();
         String s =
                 "test"
-                        + RedisDynamicTableFactory.CACHE_SEPERATOR
+                        + RedisDynamicTableFactory.CACHE_SEPARATOR
                         + "11.3"
-                        + RedisDynamicTableFactory.CACHE_SEPERATOR
+                        + RedisDynamicTableFactory.CACHE_SEPARATOR
                         + "10.3";
         Preconditions.condition(singleRedisCommands.get("test").equals(s), "");
     }

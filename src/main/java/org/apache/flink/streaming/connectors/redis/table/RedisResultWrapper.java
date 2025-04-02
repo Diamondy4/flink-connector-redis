@@ -25,7 +25,7 @@ import org.apache.flink.table.types.DataType;
 
 import java.util.List;
 
-import static org.apache.flink.streaming.connectors.redis.table.RedisDynamicTableFactory.CACHE_SEPERATOR;
+import static org.apache.flink.streaming.connectors.redis.table.RedisDynamicTableFactory.CACHE_SEPARATOR;
 
 public class RedisResultWrapper {
 
@@ -72,7 +72,7 @@ public class RedisResultWrapper {
             return genericRowData;
         }
 
-        String[] values = value.split(CACHE_SEPERATOR);
+        String[] values = value.split(CACHE_SEPARATOR);
         for (int i = 0; i < dataTypes.size(); i++) {
             if (i < values.length) {
                 genericRowData.setField(

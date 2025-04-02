@@ -38,7 +38,7 @@ public class RedisDynamicTableFactory
 
     public static final String IDENTIFIER = "redis";
 
-    public static final String CACHE_SEPERATOR = "\01";
+    public static final String CACHE_SEPARATOR = "\01";
 
     @Override
     public DynamicTableSource createDynamicTableSource(Context context) {
