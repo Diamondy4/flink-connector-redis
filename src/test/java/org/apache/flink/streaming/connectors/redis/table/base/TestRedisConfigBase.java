@@ -18,19 +18,16 @@
 
 package org.apache.flink.streaming.connectors.redis.table.base;
 
+import io.lettuce.core.RedisClient;
+import io.lettuce.core.RedisURI;
+import io.lettuce.core.api.StatefulRedisConnection;
+import io.lettuce.core.api.sync.RedisCommands;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import io.lettuce.core.RedisClient;
-import io.lettuce.core.RedisURI;
-import io.lettuce.core.api.StatefulRedisConnection;
-import io.lettuce.core.api.sync.RedisCommands;
-
-/**
- * @Author: Jeff Zou @Date: 2022/10/14 10:07
- */
+/** @Author: Jeff Zou @Date: 2022/10/14 10:07 */
 public class TestRedisConfigBase {
 
     private static final Logger LOG = LoggerFactory.getLogger(TestRedisConfigBase.class);

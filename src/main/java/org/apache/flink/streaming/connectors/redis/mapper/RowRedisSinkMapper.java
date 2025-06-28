@@ -18,6 +18,7 @@
 
 package org.apache.flink.streaming.connectors.redis.mapper;
 
+import java.time.LocalTime;
 import org.apache.flink.configuration.ReadableConfig;
 import org.apache.flink.streaming.connectors.redis.command.RedisCommand;
 import org.apache.flink.streaming.connectors.redis.command.RedisCommandDescription;
@@ -27,8 +28,6 @@ import org.apache.flink.table.data.GenericRowData;
 import org.apache.flink.table.data.RowData;
 import org.apache.flink.table.types.logical.LogicalType;
 import org.apache.flink.util.StringUtils;
-
-import java.time.LocalTime;
 
 /** base row redis mapper implement. */
 public class RowRedisSinkMapper implements RedisSinkMapper<GenericRowData> {

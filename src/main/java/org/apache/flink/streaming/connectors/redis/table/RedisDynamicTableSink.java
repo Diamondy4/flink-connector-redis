@@ -18,6 +18,7 @@
 
 package org.apache.flink.streaming.connectors.redis.table;
 
+import java.util.Map;
 import org.apache.flink.configuration.ReadableConfig;
 import org.apache.flink.streaming.connectors.redis.command.RedisCommand;
 import org.apache.flink.streaming.connectors.redis.config.FlinkConfigBase;
@@ -32,8 +33,6 @@ import org.apache.flink.table.connector.sink.DynamicTableSink;
 import org.apache.flink.table.connector.sink.SinkFunctionProvider;
 import org.apache.flink.types.RowKind;
 import org.apache.flink.util.Preconditions;
-
-import java.util.Map;
 
 /** Created by jeff.zou on 2020/9/10. */
 public class RedisDynamicTableSink implements DynamicTableSink {

@@ -18,6 +18,8 @@
 
 package org.apache.flink.streaming.connectors.redis.table;
 
+import java.util.HashSet;
+import java.util.Set;
 import org.apache.flink.configuration.ConfigOption;
 import org.apache.flink.configuration.ReadableConfig;
 import org.apache.flink.streaming.connectors.redis.command.RedisCommand;
@@ -28,9 +30,6 @@ import org.apache.flink.table.factories.DynamicTableSinkFactory;
 import org.apache.flink.table.factories.DynamicTableSourceFactory;
 import org.apache.flink.table.factories.FactoryUtil;
 import org.apache.flink.util.FlinkRuntimeException;
-
-import java.util.HashSet;
-import java.util.Set;
 
 /** Created by jeff.zou on 2020/9/10. */
 public class RedisDynamicTableFactory

@@ -18,9 +18,8 @@
 
 package org.apache.flink.streaming.connectors.redis.config;
 
-import org.apache.flink.util.Preconditions;
-
 import java.io.Serializable;
+import org.apache.flink.util.Preconditions;
 
 /** Base class for Flink Redis configuration. */
 public abstract class FlinkConfigBase implements Serializable {

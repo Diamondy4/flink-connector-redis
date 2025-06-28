@@ -18,11 +18,10 @@
 
 package org.apache.flink.streaming.connectors.redis.container;
 
-import org.apache.flink.streaming.connectors.redis.config.FlinkConfigBase;
-
 import io.lettuce.core.AbstractRedisClient;
 import io.lettuce.core.RedisClient;
 import io.lettuce.core.cluster.RedisClusterClient;
+import org.apache.flink.streaming.connectors.redis.config.FlinkConfigBase;
 
 /** The builder for {@link RedisCommandsContainer}. */
 public class RedisCommandsContainerBuilder {

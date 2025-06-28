@@ -21,7 +21,6 @@ package org.apache.flink.streaming.connectors.redis.container;
 import io.lettuce.core.Range;
 import io.lettuce.core.RedisFuture;
 import io.lettuce.core.cluster.api.async.RedisClusterAsyncCommands;
-
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.List;
@@ -52,6 +51,7 @@ public interface RedisCommandsContainer extends Serializable {
      * Sets fields in the hash stored at key to value, with TTL, if needed. Setting expire time to
      * key is optional. If key does not exist, a new key holding a hash is created. If key already
      * exists, it is overwritten.
+     *
      * @param key
      * @param hashField
      * @return
@@ -157,6 +157,7 @@ public interface RedisCommandsContainer extends Serializable {
 
     /**
      * Remove members from a specified score range
+     *
      * @param key
      * @param range
      * @return
@@ -165,6 +166,7 @@ public interface RedisCommandsContainer extends Serializable {
 
     /**
      * Remove members from a specified lex range
+     *
      * @param key
      * @param range
      * @return
@@ -173,6 +175,7 @@ public interface RedisCommandsContainer extends Serializable {
 
     /**
      * Remove members from a specified rank
+     *
      * @param key
      * @param start
      * @param stop

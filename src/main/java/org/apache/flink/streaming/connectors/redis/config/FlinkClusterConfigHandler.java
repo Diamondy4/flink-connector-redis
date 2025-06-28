@@ -18,14 +18,13 @@
 
 package org.apache.flink.streaming.connectors.redis.config;
 
-import org.apache.flink.configuration.ReadableConfig;
-import org.apache.flink.util.Preconditions;
+import static org.apache.flink.streaming.connectors.redis.config.RedisValidator.REDIS_CLUSTER;
+import static org.apache.flink.streaming.connectors.redis.config.RedisValidator.REDIS_MODE;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import static org.apache.flink.streaming.connectors.redis.config.RedisValidator.REDIS_CLUSTER;
-import static org.apache.flink.streaming.connectors.redis.config.RedisValidator.REDIS_MODE;
+import org.apache.flink.configuration.ReadableConfig;
+import org.apache.flink.util.Preconditions;
 
 /** cluster config handler to find and create cluster config use meta. */
 public class FlinkClusterConfigHandler implements FlinkConfigHandler {
@@ -60,6 +59,5 @@ public class FlinkClusterConfigHandler implements FlinkConfigHandler {
         return require;
     }
 
-    public FlinkClusterConfigHandler() {
-    }
+    public FlinkClusterConfigHandler() {}
 }

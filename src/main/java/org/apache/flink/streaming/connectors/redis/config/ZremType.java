@@ -18,9 +18,8 @@
 
 package org.apache.flink.streaming.connectors.redis.config;
 
-/** rem type for sorted set**/
+/** rem type for sorted set* */
 public enum ZremType {
-
     SCORE,
     RANK,
     LEX,

@@ -20,7 +20,12 @@ package org.apache.flink.streaming.connectors.redis.table;
 
 import io.lettuce.core.Range;
 import io.lettuce.core.RedisFuture;
-
+import java.io.IOException;
+import java.time.LocalTime;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 import org.apache.flink.configuration.Configuration;
 import org.apache.flink.configuration.ReadableConfig;
 import org.apache.flink.streaming.api.functions.sink.RichSinkFunction;
@@ -43,16 +48,7 @@ import org.apache.flink.util.Preconditions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.IOException;
-import java.time.LocalTime;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-
-/**
- * @param <IN>
- */
+/** @param <IN> */
 public class RedisSinkFunction<IN> extends RichSinkFunction<IN> {
 
     private static final long serialVersionUID = 1L;

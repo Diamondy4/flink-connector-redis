@@ -18,6 +18,7 @@
 
 package org.apache.flink.streaming.connectors.redis.table;
 
+import java.util.Map;
 import org.apache.flink.configuration.ReadableConfig;
 import org.apache.flink.streaming.connectors.redis.command.RedisCommand;
 import org.apache.flink.streaming.connectors.redis.config.FlinkConfigBase;
@@ -35,8 +36,6 @@ import org.apache.flink.table.connector.source.LookupTableSource;
 import org.apache.flink.table.connector.source.ScanTableSource;
 import org.apache.flink.table.connector.source.SourceFunctionProvider;
 import org.apache.flink.util.Preconditions;
-
-import java.util.Map;
 
 /** redis dynamic table source. @Author: jeff.zou @Date: 2022/3/7.13:41 */
 public class RedisDynamicTableSource implements ScanTableSource, LookupTableSource {

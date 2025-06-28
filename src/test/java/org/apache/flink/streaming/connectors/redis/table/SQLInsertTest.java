@@ -21,7 +21,6 @@ package org.apache.flink.streaming.connectors.redis.table;
 import static org.apache.flink.streaming.connectors.redis.config.RedisValidator.REDIS_COMMAND;
 
 import io.lettuce.core.Range;
-
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.streaming.connectors.redis.command.RedisCommand;
 import org.apache.flink.streaming.connectors.redis.table.base.TestRedisConfigBase;

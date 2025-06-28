@@ -18,10 +18,9 @@
 
 package org.apache.flink.streaming.connectors.redis.config;
 
+import java.util.Objects;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.util.Objects;
 
 /** Configuration for Sentinel pool. */
 public class FlinkSentinelConfig extends FlinkConfigBase {

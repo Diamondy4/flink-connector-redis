@@ -26,18 +26,16 @@ import io.lettuce.core.cluster.ClusterTopologyRefreshOptions;
 import io.lettuce.core.cluster.RedisClusterClient;
 import io.lettuce.core.resource.ClientResources;
 import io.lettuce.core.resource.DefaultClientResources;
-
-import org.apache.flink.streaming.connectors.redis.config.FlinkClusterConfig;
-import org.apache.flink.streaming.connectors.redis.config.FlinkConfigBase;
-import org.apache.flink.streaming.connectors.redis.config.FlinkSentinelConfig;
-import org.apache.flink.streaming.connectors.redis.config.FlinkSingleConfig;
-import org.apache.flink.util.StringUtils;
-
 import java.time.Duration;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
+import org.apache.flink.streaming.connectors.redis.config.FlinkClusterConfig;
+import org.apache.flink.streaming.connectors.redis.config.FlinkConfigBase;
+import org.apache.flink.streaming.connectors.redis.config.FlinkSentinelConfig;
+import org.apache.flink.streaming.connectors.redis.config.FlinkSingleConfig;
+import org.apache.flink.util.StringUtils;
 
 /**
  * @author Jeff Zou
@@ -172,9 +170,9 @@ public class RedisClientBuilder {
                                         sentinelConfig.getSentinelsPassword());
                             } else {
                                 builder.withSentinel(
-                                        redis[0],
-                                        Integer.parseInt(redis[1]),
-                                        sentinelConfig.getSentinelsPassword())
+                                                redis[0],
+                                                Integer.parseInt(redis[1]),
+                                                sentinelConfig.getSentinelsPassword())
                                         .withPassword(sentinelConfig.getPassword().toCharArray());
                             }
                         });

@@ -18,6 +18,7 @@
 
 package org.apache.flink.streaming.connectors.redis.table;
 
+import java.util.List;
 import org.apache.flink.configuration.Configuration;
 import org.apache.flink.configuration.ReadableConfig;
 import org.apache.flink.streaming.api.functions.source.RichSourceFunction;
@@ -37,8 +38,6 @@ import org.apache.flink.table.types.logical.DoubleType;
 import org.apache.flink.util.Preconditions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.util.List;
 
 public class RedisSourceFunction<T> extends RichSourceFunction<T> {
 
@@ -120,79 +119,85 @@ public class RedisSourceFunction<T> extends RichSourceFunction<T> {
 
     private void query(SourceContext ctx) throws Exception {
         switch (redisCommand.getSelectCommand()) {
-            case GET: {
-                String result = this.redisCommandsContainer.get(queryParameter[0]).get();
-                GenericRowData rowData =
-                        RedisResultWrapper.createRowDataForString(
-                                queryParameter, result, redisValueDataStructure, dataTypes);
-                ctx.collect(rowData);
-                break;
-            }
-            case HGET: {
-                String result =
-                        this.redisCommandsContainer
-                                .hget(queryParameter[0], queryParameter[1])
-                                .get();
-                GenericRowData rowData =
-                        RedisResultWrapper.createRowDataForHash(
-                                queryParameter, result, redisValueDataStructure, dataTypes);
-                ctx.collect(rowData);
-                break;
-            }
-            case ZSCORE: {
-                Double result =
-                        this.redisCommandsContainer
-                                .zscore(queryParameter[0], queryParameter[1])
-                                .get();
-                GenericRowData rowData =
-                        RedisResultWrapper.createRowDataForSortedSet(
-                                queryParameter, result, dataTypes);
-                ctx.collect(rowData);
-                break;
-            }
-            case LRANGE: {
-                List list =
-                        this.redisCommandsContainer
-                                .lRange(
-                                        queryParameter[0],
-                                        this.readableConfig.get(RedisOptions.SCAN_RANGE_START),
-                                        this.readableConfig.get(RedisOptions.SCAN_RANGE_STOP))
-                                .get();
-                list.forEach(
-                        result -> {
-                            GenericRowData rowData =
-                                    RedisResultWrapper.createRowDataForString(
-                                            queryParameter,
-                                            String.valueOf(result),
-                                            redisValueDataStructure,
-                                            dataTypes);
-                            ctx.collect(rowData);
-                        });
+            case GET:
+                {
+                    String result = this.redisCommandsContainer.get(queryParameter[0]).get();
+                    GenericRowData rowData =
+                            RedisResultWrapper.createRowDataForString(
+                                    queryParameter, result, redisValueDataStructure, dataTypes);
+                    ctx.collect(rowData);
+                    break;
+                }
+            case HGET:
+                {
+                    String result =
+                            this.redisCommandsContainer
+                                    .hget(queryParameter[0], queryParameter[1])
+                                    .get();
+                    GenericRowData rowData =
+                            RedisResultWrapper.createRowDataForHash(
+                                    queryParameter, result, redisValueDataStructure, dataTypes);
+                    ctx.collect(rowData);
+                    break;
+                }
+            case ZSCORE:
+                {
+                    Double result =
+                            this.redisCommandsContainer
+                                    .zscore(queryParameter[0], queryParameter[1])
+                                    .get();
+                    GenericRowData rowData =
+                            RedisResultWrapper.createRowDataForSortedSet(
+                                    queryParameter, result, dataTypes);
+                    ctx.collect(rowData);
+                    break;
+                }
+            case LRANGE:
+                {
+                    List list =
+                            this.redisCommandsContainer
+                                    .lRange(
+                                            queryParameter[0],
+                                            this.readableConfig.get(RedisOptions.SCAN_RANGE_START),
+                                            this.readableConfig.get(RedisOptions.SCAN_RANGE_STOP))
+                                    .get();
+                    list.forEach(
+                            result -> {
+                                GenericRowData rowData =
+                                        RedisResultWrapper.createRowDataForString(
+                                                queryParameter,
+                                                String.valueOf(result),
+                                                redisValueDataStructure,
+                                                dataTypes);
+                                ctx.collect(rowData);
+                            });
 
-                break;
-            }
-            case SRANDMEMBER: {
-                List list =
-                        this.redisCommandsContainer
-                                .srandmember(
-                                        String.valueOf(queryParameter[0]),
-                                        readableConfig.get(RedisOptions.SCAN_COUNT))
-                                .get();
+                    break;
+                }
+            case SRANDMEMBER:
+                {
+                    List list =
+                            this.redisCommandsContainer
+                                    .srandmember(
+                                            String.valueOf(queryParameter[0]),
+                                            readableConfig.get(RedisOptions.SCAN_COUNT))
+                                    .get();
 
-                list.forEach(
-                        result -> {
-                            GenericRowData rowData =
-                                    RedisResultWrapper.createRowDataForString(
-                                            queryParameter,
-                                            String.valueOf(result),
-                                            redisValueDataStructure,
-                                            dataTypes);
-                            ctx.collect(rowData);
-                        });
-                break;
-            }
-            case SUBSCRIBE: {
-            }
+                    list.forEach(
+                            result -> {
+                                GenericRowData rowData =
+                                        RedisResultWrapper.createRowDataForString(
+                                                queryParameter,
+                                                String.valueOf(result),
+                                                redisValueDataStructure,
+                                                dataTypes);
+                                ctx.collect(rowData);
+                            });
+                    break;
+                }
+            case SUBSCRIBE:
+                {
+                }
             default:
         }
     }
@@ -206,8 +211,7 @@ public class RedisSourceFunction<T> extends RichSourceFunction<T> {
     }
 
     @Override
-    public void cancel() {
-    }
+    public void cancel() {}
 
     private void validator() {
         Preconditions.checkNotNull(

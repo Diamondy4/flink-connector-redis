@@ -18,15 +18,14 @@
 
 package org.apache.flink.streaming.connectors.redis.config;
 
-import org.apache.flink.configuration.ReadableConfig;
-import org.apache.flink.util.Preconditions;
-import org.apache.flink.util.StringUtils;
+import static org.apache.flink.streaming.connectors.redis.config.RedisValidator.REDIS_MODE;
+import static org.apache.flink.streaming.connectors.redis.config.RedisValidator.REDIS_SENTINEL;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import static org.apache.flink.streaming.connectors.redis.config.RedisValidator.REDIS_MODE;
-import static org.apache.flink.streaming.connectors.redis.config.RedisValidator.REDIS_SENTINEL;
+import org.apache.flink.configuration.ReadableConfig;
+import org.apache.flink.util.Preconditions;
+import org.apache.flink.util.StringUtils;
 
 /** */
 public class FlinkSentinelConfigHandler implements FlinkConfigHandler {
@@ -67,6 +66,5 @@ public class FlinkSentinelConfigHandler implements FlinkConfigHandler {
         return require;
     }
 
-    public FlinkSentinelConfigHandler() {
-    }
+    public FlinkSentinelConfigHandler() {}
 }

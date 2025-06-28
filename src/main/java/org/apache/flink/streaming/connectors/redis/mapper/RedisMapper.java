@@ -18,14 +18,11 @@
 
 package org.apache.flink.streaming.connectors.redis.mapper;
 
+import java.io.Serializable;
 import org.apache.flink.api.common.functions.Function;
 import org.apache.flink.streaming.connectors.redis.command.RedisCommandBaseDescription;
 
-import java.io.Serializable;
-
-/**
- * @param <T>
- */
+/** @param <T> */
 public interface RedisMapper<T> extends Function, Serializable {
 
     /**

@@ -18,11 +18,10 @@
 
 package org.apache.flink.streaming.connectors.redis.config;
 
-import org.apache.flink.configuration.ReadableConfig;
-import org.apache.flink.util.Preconditions;
-
 import java.util.HashMap;
 import java.util.Map;
+import org.apache.flink.configuration.ReadableConfig;
+import org.apache.flink.util.Preconditions;
 
 /** */
 public class FlinkSingleConfigHandler implements FlinkConfigHandler {
@@ -56,6 +55,5 @@ public class FlinkSingleConfigHandler implements FlinkConfigHandler {
         return require;
     }
 
-    public FlinkSingleConfigHandler() {
-    }
+    public FlinkSingleConfigHandler() {}
 }

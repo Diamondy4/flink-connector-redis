@@ -18,14 +18,13 @@
 
 package org.apache.flink.streaming.connectors.redis.table;
 
+import static org.apache.flink.streaming.connectors.redis.table.RedisDynamicTableFactory.CACHE_SEPARATOR;
+
+import java.util.List;
 import org.apache.flink.streaming.connectors.redis.config.RedisValueDataStructure;
 import org.apache.flink.streaming.connectors.redis.converter.RedisRowConverter;
 import org.apache.flink.table.data.GenericRowData;
 import org.apache.flink.table.types.DataType;
-
-import java.util.List;
-
-import static org.apache.flink.streaming.connectors.redis.table.RedisDynamicTableFactory.CACHE_SEPARATOR;
 
 public class RedisResultWrapper {
 

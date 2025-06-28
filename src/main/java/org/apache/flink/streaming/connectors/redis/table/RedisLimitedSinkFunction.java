@@ -18,6 +18,7 @@
 
 package org.apache.flink.streaming.connectors.redis.table;
 
+import java.util.concurrent.TimeUnit;
 import org.apache.flink.configuration.Configuration;
 import org.apache.flink.configuration.ReadableConfig;
 import org.apache.flink.streaming.connectors.redis.config.FlinkConfigBase;
@@ -30,11 +31,7 @@ import org.apache.flink.util.Preconditions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.concurrent.TimeUnit;
-
-/**
- * @Author: Jeff Zou @Date: 2022/9/26 15:28 Specially used for Flink online debugging.
- */
+/** @Author: Jeff Zou @Date: 2022/9/26 15:28 Specially used for Flink online debugging. */
 public class RedisLimitedSinkFunction<IN> extends RedisSinkFunction<IN> {
 
     private static final Logger LOG = LoggerFactory.getLogger(RedisLimitedSinkFunction.class);
