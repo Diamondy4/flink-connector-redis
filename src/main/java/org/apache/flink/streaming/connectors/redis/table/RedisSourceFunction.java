@@ -19,9 +19,9 @@
 package org.apache.flink.streaming.connectors.redis.table;
 
 import java.util.List;
-import org.apache.flink.configuration.Configuration;
+import org.apache.flink.api.common.functions.OpenContext;
 import org.apache.flink.configuration.ReadableConfig;
-import org.apache.flink.streaming.api.functions.source.RichSourceFunction;
+import org.apache.flink.streaming.api.functions.source.legacy.RichSourceFunction;
 import org.apache.flink.streaming.connectors.redis.command.RedisCommand;
 import org.apache.flink.streaming.connectors.redis.command.RedisCommandBaseDescription;
 import org.apache.flink.streaming.connectors.redis.command.RedisSelectCommand;
@@ -78,7 +78,7 @@ public class RedisSourceFunction<T> extends RichSourceFunction<T> {
     }
 
     @Override
-    public void open(Configuration parameters) throws Exception {
+    public void open(OpenContext context) throws Exception {
         validator();
         this.queryParameter = new String[2];
         this.queryParameter[0] = this.readableConfig.get(RedisOptions.SCAN_KEY);
@@ -97,7 +97,7 @@ public class RedisSourceFunction<T> extends RichSourceFunction<T> {
             LOG.error("Redis has not been properly initialized: ", e);
             throw e;
         }
-        super.open(parameters);
+        super.open(context);
     }
 
     @Override

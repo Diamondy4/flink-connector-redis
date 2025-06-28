@@ -26,9 +26,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import org.apache.flink.configuration.Configuration;
+import org.apache.flink.api.common.functions.OpenContext;
 import org.apache.flink.configuration.ReadableConfig;
-import org.apache.flink.streaming.api.functions.sink.RichSinkFunction;
+import org.apache.flink.streaming.api.functions.sink.legacy.RichSinkFunction;
 import org.apache.flink.streaming.connectors.redis.command.RedisCommand;
 import org.apache.flink.streaming.connectors.redis.command.RedisCommandDescription;
 import org.apache.flink.streaming.connectors.redis.command.RedisInsertCommand;
@@ -475,7 +475,7 @@ public class RedisSinkFunction<IN> extends RichSinkFunction<IN> {
      * @throws IllegalArgumentException if PoolConfig, ClusterConfig and SentinelConfig are all null
      */
     @Override
-    public void open(Configuration parameters) throws Exception {
+    public void open(OpenContext context) throws Exception {
         Preconditions.checkArgument(
                 redisCommand.getInsertCommand() != RedisInsertCommand.NONE,
                 "the command %s do not support insert.",

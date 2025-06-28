@@ -19,7 +19,7 @@
 package org.apache.flink.streaming.connectors.redis.table;
 
 import java.util.concurrent.TimeUnit;
-import org.apache.flink.configuration.Configuration;
+import org.apache.flink.api.common.functions.OpenContext;
 import org.apache.flink.configuration.ReadableConfig;
 import org.apache.flink.streaming.connectors.redis.config.FlinkConfigBase;
 import org.apache.flink.streaming.connectors.redis.config.RedisOptions;
@@ -80,8 +80,8 @@ public class RedisLimitedSinkFunction<IN> extends RedisSinkFunction<IN> {
     }
 
     @Override
-    public void open(Configuration parameters) throws Exception {
-        super.open(parameters);
+    public void open(OpenContext context) throws Exception {
+        super.open(context);
         startTime = System.currentTimeMillis();
     }
 
